@@ -1,7 +1,7 @@
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 SRCS = $(wildcard srcs/*.c)
 DEPS = $(wildcard includes/*.h)
@@ -11,7 +11,7 @@ LIBFT_LIB = libft/libft.a
 
 all : $(NAME)
 
-$(NAME) : $(LIBFT_LIB)
+$(NAME) : $(SRCS) $(DEPS) $(LIBFT_LIB)
 	$(CC) $(CFLAGS) $(SRCS) $(LIBFT_LIB) -o $(NAME)
 
 $(LIBFT_LIB):

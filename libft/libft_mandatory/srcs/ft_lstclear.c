@@ -6,13 +6,13 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 19:13:06 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/01 12:56:09 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/05 18:54:44 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(int))
 {
 	t_list	*current;
 	t_list	*next_node;

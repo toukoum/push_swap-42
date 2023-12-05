@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 22:51:38 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/01 12:56:17 by rgiraud          ###   ########.fr       */
+/*   Created: 2023/12/05 18:19:59 by rgiraud           #+#    #+#             */
+/*   Updated: 2023/12/05 19:59:38 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../includes/push_swap.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	delete_content(int content)
 {
-	if (!lst || !f)
-		return ;
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
+	(void)content;
+}
+
+void	handle_error(t_list **lst_tab)
+{
+	ft_lstclear(lst_tab, &delete_content);
+	exit(EXIT_FAILURE);
 }

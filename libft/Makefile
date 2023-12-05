@@ -21,19 +21,19 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "$(ROSE)Creating library $(NAME)...$(NC)"
-	ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
 
 %.o: %.c $(DEPS)
 	@echo "$(GREEN)Compiling $<...$(NC)"
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@echo "$(RED)Cleaning object files...$(NC)"
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
 	@echo "$(RED)Cleaning library $(NAME)...$(NC)"
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
