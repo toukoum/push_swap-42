@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:46:01 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/06 13:42:33 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/06 19:45:21 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_add_arg(t_list **lst_tab, char *arg)
 	}
 }
 
-t_parse_list	*ft_copy_lst_tab(t_list **lst_tab, t_parse_list *result)
+t_stack	*ft_copy_lst_tab(t_list **lst_tab, t_stack *result)
 {
 	int		len_tab;
 	t_list	*temp;
@@ -74,11 +74,11 @@ t_parse_list	*ft_copy_lst_tab(t_list **lst_tab, t_parse_list *result)
 	return (result);
 }
 
-t_parse_list	*ft_parse(int argc, char **argv)
+t_stack	*ft_parse(int argc, char **argv)
 {
-	t_list			*lst_tab;
-	t_parse_list	*result;
-	int				i;
+	t_list	*lst_tab;
+	t_stack	*result;
+	int		i;
 
 	lst_tab = NULL;
 	i = 1;
@@ -86,7 +86,7 @@ t_parse_list	*ft_parse(int argc, char **argv)
 	{
 		ft_add_arg(&lst_tab, argv[i++]);
 	}
-	result = malloc(sizeof(t_parse_list));
+	result = malloc(sizeof(t_stack));
 	if (!result)
 		handle_error(&lst_tab);
 	return (ft_copy_lst_tab(&lst_tab, result));

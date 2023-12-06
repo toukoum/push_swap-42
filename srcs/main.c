@@ -6,27 +6,39 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:45:54 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/05 19:56:34 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/06 20:04:07 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+void display_stack(t_stack *stack)
 {
-	int				*tab;
-	t_parse_list	*parse_result;
-	int				len_tab;
+	int		len_tab;
+	int		*tab;
 
-	if (argc == 1)
-		return (0);
-	parse_result = ft_parse(argc, argv);
-	tab = parse_result->tab;
-	len_tab = parse_result->len;
+	ft_printf("\n============ Affichage de la Stack =============\n\n");
+	tab = stack->tab;
+	len_tab = stack->len;
 	for (int i = 0; i < len_tab; i++)
 	{
 		ft_printf("tab[%d]: %d\n", i, tab[i]);
 	}
-	free(tab);
+}
+int	main(int argc, char **argv)
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+
+	stack_b = NULL;
+	if (argc == 1)
+		return (0);
+	stack_a = ft_parse(argc, argv);
+	init_stack_b(stack_a, stack_b);
+
+	display_stack(stack_a);
+	sa(stack_a);
+	display_stack(stack_a);
+	
 	return (0);
 }
