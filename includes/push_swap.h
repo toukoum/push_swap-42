@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 18:33:53 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/05 19:56:26 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:50:37 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ typedef struct s_parse_list
 void			delete_content(int content);
 void			handle_error(t_list **lst_tab);
 t_parse_list	*ft_parse(int argc, char **argv);
+void			ft_find_disturb(char *arg, t_list **lst_tab);
+int				find_dubble(t_list *lst_tab, int n);
+void			ft_add_arg(t_list **lst_tab, char *arg);
+
 // ===============================================================
 
 #endif

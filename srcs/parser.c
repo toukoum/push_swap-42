@@ -6,32 +6,43 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:46:01 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/05 19:59:08 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/06 13:42:33 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_parse_string(t_list *lst_tab, char *arg)
+void	ft_parse_string(t_list **lst_tab, char *arg)
 {
-	(void)lst_tab;
-	(void)arg;
-	return ;
+	char	**result;
+	int		i;
+
+	i = 0;
+	result = ft_split(arg, ' ');
+	if (!result)
+		handle_error(lst_tab);
+	while (result[i])
+	{
+		ft_add_arg(lst_tab, result[i]);
+		i++;
+	}
+	free(result);
 }
 
 void	ft_add_arg(t_list **lst_tab, char *arg)
 {
 	t_list	*node;
-	int		result;
+	long	result;
 
+	ft_find_disturb(arg, lst_tab);
 	if (ft_strchr(arg, ' '))
-		ft_parse_string(*lst_tab, arg);
+		ft_parse_string(lst_tab, arg);
 	else
 	{
 		result = ft_atoi(arg);
-		if (!result)
+		if ((result == 2147483648) || find_dubble(*lst_tab, result))
 			handle_error(lst_tab);
-		node = ft_lstnew(result);
+		node = ft_lstnew((int)result);
 		ft_lstadd_back(lst_tab, node);
 	}
 }

@@ -11,11 +11,11 @@ LIBFT_LIB = libft/libft.a
 
 all : $(NAME)
 
-$(NAME) : $(SRCS) $(DEPS) $(LIBFT_LIB)
+$(NAME) : $(LIBFT_LIB) $(SRCS) $(DEPS) 
 	$(CC) $(CFLAGS) $(SRCS) $(LIBFT_LIB) -o $(NAME)
 
 $(LIBFT_LIB):
-	make -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR)
 
 clean:
 	make clean -C $(LIBFT_DIR)

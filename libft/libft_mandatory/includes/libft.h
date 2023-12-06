@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:52:25 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/05 19:04:15 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/06 10:52:02 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 char				*ft_strnstr(const char *haystack, const char *needle,
 						size_t len);
-int					ft_atoi(const char *str);
+long				ft_atoi(const char *str);
 
 char				*ft_strdup(const char *s);
 void				*ft_memmove(void *dest, const void *src, size_t n);

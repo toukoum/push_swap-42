@@ -6,13 +6,13 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:42:58 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/01 12:55:23 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/06 13:44:12 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int		i;
 	int		sign;
@@ -21,20 +21,22 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	i = 0;
 	result = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 		if (str[i++] == '-')
 			sign = -1;
+	if (!(str[i] >= '0' && str[i] <= '9'))
+		return (2147483648);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - 48);
-		if (result > INT_MAX && sign == 1)
-			return (-1);
-		if (result > (long)INT_MAX + 1 && sign == -1)
-			return (0);
 		i++;
+		if ((result > INT_MAX && sign == 1) || (result > (2147483648)
+				&& sign == -1))
+			return (2147483648);
 	}
-	return ((int)(result * sign));
+	if (str[i])
+		return (2147483648);
+	return (result * sign);
 }
