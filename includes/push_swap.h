@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 18:33:53 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/06 20:08:31 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/07 11:19:17 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,22 @@ void	ft_add_arg(t_list **lst_tab, char *arg);
 
 // =========================== UTILS =============================
 void	handle_error_stack(t_stack *stack_a, t_stack *stack_b);
-void	init_stack_b(t_stack *stack_a, t_stack *stack_b);
-
+void	init_stack_b(t_stack *stack_a, t_stack **stack_b);
+void	free_stack(t_stack *stack_a, t_stack *stack_b);
 // ===============================================================
 
 // ======================== INSTRUCTIONS =========================
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack *stack_a, t_stack *stack_b);
+void	ra(t_stack *stack_a);
+void	rb(t_stack *stack_b);
+void	rr(t_stack *stack_a, t_stack *stack_b);
+void	rra(t_stack *stack_a);
+void	rrb(t_stack *stack_b);
+void	rrr(t_stack *stack_a, t_stack *stack_b);
 // ===============================================================
 
 #endif
