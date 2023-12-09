@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:45:54 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/07 21:02:15 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/09 16:50:49 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,17 @@ void	display_stack(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("Stack A\n");
 	for (int i = 0; i < stack_a->len; i++)
 	{
-		ft_printf("tab[%d]: %d\n", i, stack_a->tab[i]);
+		ft_printf("%d ", stack_a->tab[i]);
 	}
 	ft_printf("\n---------------------\nStack B\n");
 	for (int i = 0; i < stack_b->len; i++)
 	{
-		ft_printf("tab[%d]: %d\n", i, stack_b->tab[i]);
+		ft_printf("%d ", stack_b->tab[i]);
 	}
 }
 
 void ft_bubble_sort(t_stack *stack_a)
 {
-	int i = 0;
 	int j;
 	int swap = 1;
 	
@@ -54,9 +53,7 @@ void ft_bubble_sort(t_stack *stack_a)
 		}
 		while (j-- > 0)
 			rra(stack_a);		
-		i++;
 	}
-	
 }
 
 int	main(int argc, char **argv)
@@ -69,8 +66,20 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = ft_parse(argc, argv);
 	init_stack_b(stack_a, &stack_b);
+	
 	display_stack(stack_a, stack_b);
-	ft_bubble_sort(stack_a);
+	
+	if (stack_a->len == 2)
+		ft_sort_two(stack_a);
+	else if (stack_a->len == 3)
+		ft_sort_three(stack_a);
+	else if (stack_a->len == 4)
+		ft_sort_four(stack_a, stack_b);
+	else if (stack_a->len == 5)
+		ft_sort_five(stack_a, stack_b);
+	else
+		ft_radix_sort(stack_a, stack_b);
+			
 	display_stack(stack_a, stack_b);
 	free_stack(stack_a, stack_b);
 	return (0);

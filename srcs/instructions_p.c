@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:21:51 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/07 09:45:00 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/08 14:33:52 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 		stack_b->tab[i] = stack_b->tab[i + 1];
 		i++;
 	}
+	ft_printf("pa\n");
 }
 
 void	pb(t_stack *stack_a, t_stack *stack_b)
@@ -54,4 +55,5 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 		stack_a->tab[i] = stack_a->tab[i + 1];
 		i++;
 	}
+	ft_printf("pb\n");
 }

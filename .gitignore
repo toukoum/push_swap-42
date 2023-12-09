@@ -84,3 +84,10 @@ nb-configuration.xml
 
 *.log
 client_secret.json
+
+
+push_swap_tester
+push_swap_tester.sh
+push_swap.dSYM
+Push-Swap-Tester
+

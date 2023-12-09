@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 18:19:59 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/06 13:42:22 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/08 20:38:34 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	delete_content(int content)
 void	handle_error(t_list **lst_tab)
 {
 	ft_lstclear(lst_tab, &delete_content);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 

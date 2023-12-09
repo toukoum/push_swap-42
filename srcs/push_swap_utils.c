@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:33:18 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/07 09:48:59 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/08 15:20:51 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,38 @@ void	init_stack_b(t_stack *stack_a, t_stack **stack_b)
 	(*stack_b)->len = 0;
 }
 
-
 void	free_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	free(stack_a->tab);
 	free(stack_b->tab);
 	free(stack_a);
-	free(stack_b);	
+	free(stack_b);
+}
+
+int	check_sort(t_stack *stack_a)
+{
+	int	i;
+
+	i = 1;
+	while (i < stack_a->len)
+	{
+		if (stack_a->tab[i - 1] > stack_a->tab[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	check_r_sort(t_stack *stack_a)
+{
+	int i;
+
+	i = 1;
+	while (i < stack_a->len)
+	{
+		if (stack_a->tab[i - 1] < stack_a->tab[i])
+			return (0);
+		i++;
+	}
+	return (1);
 }

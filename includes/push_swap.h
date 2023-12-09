@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 18:33:53 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/07 11:19:17 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/09 12:54:45 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	ft_add_arg(t_list **lst_tab, char *arg);
 void	handle_error_stack(t_stack *stack_a, t_stack *stack_b);
 void	init_stack_b(t_stack *stack_a, t_stack **stack_b);
 void	free_stack(t_stack *stack_a, t_stack *stack_b);
+int		check_sort(t_stack *stack_a);
+int		check_r_sort(t_stack *stack_a);
 // ===============================================================
 
 // ======================== INSTRUCTIONS =========================
@@ -50,6 +52,21 @@ void	rr(t_stack *stack_a, t_stack *stack_b);
 void	rra(t_stack *stack_a);
 void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
+// ===============================================================
+
+// ============================ SORT =============================
+void	ft_sort_two(t_stack *stack_a);
+void	ft_sort_three(t_stack *stack_a);
+void	ft_sort_four(t_stack *stack_a, t_stack *stack_b);
+void	ft_sort_five(t_stack *stack_a, t_stack *stack_b);
+void	ft_radix_sort(t_stack *stack_a, t_stack *stack_b);
+
+// ===============================================================
+
+// ========================= SORT UTILS ==========================
+int		find_min(t_stack *stack);
+void	normalize(t_stack *a, t_stack *b);
+
 // ===============================================================
 
 #endif

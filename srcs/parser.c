@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:46:01 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/06 19:45:21 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/08 20:36:27 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ void	ft_parse_string(t_list **lst_tab, char *arg)
 	while (result[i])
 	{
 		ft_add_arg(lst_tab, result[i]);
+		i++;
+	}
+	i = 0;
+	while (result[i])
+	{
+		free(result[i]);
 		i++;
 	}
 	free(result);
