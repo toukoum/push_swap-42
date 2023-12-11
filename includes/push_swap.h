@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 18:33:53 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/09 12:54:45 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/11 19:01:21 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ typedef struct s_stack
 	int	*tab;
 	int	len;
 }		t_stack;
+
+typedef struct s_max_value
+{
+	int	min;
+	int	max_first;
+	int	max_second;
+	int	max_third;
+	int max_fourth;
+	int max_fifth;
+	int	median;
+}		t_max_value;
 
 // =========================== PARSING ===========================
 void	delete_content(int content);
@@ -60,12 +71,14 @@ void	ft_sort_three(t_stack *stack_a);
 void	ft_sort_four(t_stack *stack_a, t_stack *stack_b);
 void	ft_sort_five(t_stack *stack_a, t_stack *stack_b);
 void	ft_radix_sort(t_stack *stack_a, t_stack *stack_b);
+void	opti_sort(t_stack *a, t_stack *b);
+void	quick_sort(int *tab, int start, int end);
 
 // ===============================================================
 
 // ========================= SORT UTILS ==========================
 int		find_min(t_stack *stack);
-void	normalize(t_stack *a, t_stack *b);
+int		is_max_value(int x, t_max_value *mv);
 
 // ===============================================================
 
