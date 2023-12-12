@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:45:54 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/11 21:51:58 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/12 15:45:29 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a = ft_parse(argc, argv);
 	init_stack_b(stack_a, &stack_b);
-	// display_stack(stack_a, stack_b);
+	display_stack(stack_a, stack_b);
 	if (stack_a->len == 2)
 		ft_sort_two(stack_a);
 	else if (stack_a->len == 3)
@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 		ft_sort_five(stack_a, stack_b);
 	else
 		opti_sort(stack_a, stack_b);
-	// display_stack(stack_a, stack_b);
+	display_stack(stack_a, stack_b);
 	free_stack(stack_a, stack_b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 11:06:37 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/12 15:34:27 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/12 15:44:26 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	calculate_best_moves(t_stack *a, t_stack *b, t_best_moves *bm, t_max_value 
 	int n_x;
 	t_best_moves *bm_temp;
 	
-	bm_temp = malloc(sizeof(bm_temp));
+	bm_temp = malloc(sizeof(t_best_moves));
 	if (!bm_temp)
 		handle_big_error(a, b, mv, bm);
 	i = 0;

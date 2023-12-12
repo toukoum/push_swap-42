@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:51:15 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/12 15:03:27 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/12 15:47:55 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,12 @@ void	ft_back_to_back(t_stack *a, t_stack *b, t_max_value *mv)
 		while (shortest--)
 			ra(a);
 	else	
+	{
+		shortest = a->len - shortest;
 		while (shortest--)
 			rra(a);	
-	//free(bm);
+	}
+	free(bm);
 }
 
 void	push_pre_sort(t_stack *a, t_stack *b, t_max_value *mv)
@@ -112,7 +115,9 @@ void	push_pre_sort(t_stack *a, t_stack *b, t_max_value *mv)
 void	opti_sort(t_stack *a, t_stack *b)
 {
 	t_max_value *mv;
-
+	
+	if (check_sort(a))
+		return ;
 	mv = init_mv(a, b);
 	push_median(a, b, mv->median);
 	push_pre_sort(a, b, mv);
