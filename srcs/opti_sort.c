@@ -6,39 +6,39 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:51:15 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/11 19:07:11 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/12 15:03:27 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_max_value	*copy_tab(t_stack *a, t_stack *b)
+t_max_value	*init_mv(t_stack *a, t_stack *b)
 {
 	int			i;
-	int			*result;
-	t_max_value	*max_value;
+	t_max_value	*mv;
 
-	max_value = malloc(sizeof(t_max_value));
-	if (!max_value)
+	mv = malloc(sizeof(t_max_value));
+	if (!mv)
 		handle_error_stack(a, b);
-	result = malloc(a->len * sizeof(int));
-	if (!result)
+	mv->copy_tab = malloc(a->len * sizeof(int));
+	if (!mv->copy_tab)
 		handle_error_stack(a, b);
+	mv->len = a->len;
 	i = -1;
 	while (++i < a->len)
-		result[i] = a->tab[i];
-	quick_sort(result, 0, a->len - 1);
+		mv->copy_tab[i] = a->tab[i];
+	quick_sort(mv->copy_tab, 0, a->len - 1);
 	if (a->len % 2 == 0)
-		max_value->median = result[(a->len - 2) / 2];
+		mv->median = mv->copy_tab[(a->len - 2) / 2];
 	else
-		max_value->median = result[(a->len - 1) / 2];
-	max_value->min = result[0];
-	max_value->max_first = result[a->len - 1];
-	max_value->max_second = result[a->len - 2];
-	max_value->max_third = result[a->len - 3];
-	max_value->max_fourth = result[a->len - 4];
-	max_value->max_fifth = result[a->len - 5];
-	return (max_value);
+		mv->median = mv->copy_tab[(a->len - 1) / 2];
+	mv->min = mv->copy_tab[0];
+	mv->max_first = mv->copy_tab[a->len - 1];
+	mv->max_second = mv->copy_tab[a->len - 2];
+	mv->max_third = mv->copy_tab[a->len - 3];
+	mv->max_fourth = mv->copy_tab[a->len - 4];
+	mv->max_fifth = mv->copy_tab[a->len - 5];
+	return (mv);
 }
 
 void	push_median(t_stack *a, t_stack *b, int median)
@@ -61,6 +61,33 @@ void	push_median(t_stack *a, t_stack *b, int median)
 	pb(a, b);
 }
 
+void	ft_back_to_back(t_stack *a, t_stack *b, t_max_value *mv)
+{
+	t_best_moves	*bm;
+	int shortest;
+
+	shortest = 0;
+	bm = malloc(sizeof(t_best_moves));
+	if (!bm)
+		handle_big_error(a, b, mv, bm);
+	init_best_moves(bm);
+	while (b->len)
+	{
+		calculate_best_moves(a, b, bm, mv);
+		apply_best_moves(a, b, bm);
+		bm->tt = INT_MAX;
+	}
+	while (a->tab[shortest] != mv->min)
+		shortest++;
+	if (shortest <= a->len - shortest)
+		while (shortest--)
+			ra(a);
+	else	
+		while (shortest--)
+			rra(a);	
+	//free(bm);
+}
+
 void	push_pre_sort(t_stack *a, t_stack *b, t_max_value *mv)
 {
 	int	i;
@@ -77,7 +104,7 @@ void	push_pre_sort(t_stack *a, t_stack *b, t_max_value *mv)
 				rb(b);
 		}
 		else
-			ra(a);		
+			ra(a);
 		i++;
 	}
 }
@@ -85,11 +112,12 @@ void	push_pre_sort(t_stack *a, t_stack *b, t_max_value *mv)
 void	opti_sort(t_stack *a, t_stack *b)
 {
 	t_max_value *mv;
-	
-	mv = copy_tab(a, b);
+
+	mv = init_mv(a, b);
 	push_median(a, b, mv->median);
 	push_pre_sort(a, b, mv);
 	ft_sort_five(a, b);
-	//ft_back_to_back(a, b, mv);
+	ft_back_to_back(a, b, mv);
+	free(mv->copy_tab);
 	free(mv);
 }

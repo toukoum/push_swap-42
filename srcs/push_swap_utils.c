@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:33:18 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/08 15:20:51 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/12 10:32:38 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	handle_error_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	free(stack_a->tab);
 	free(stack_b->tab);
+	free(stack_a);
+	free(stack_b);
 	exit(EXIT_FAILURE);
 }
 
