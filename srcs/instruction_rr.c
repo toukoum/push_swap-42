@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 10:28:21 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/12 14:32:02 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/12 16:45:07 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	rra(t_stack *stack_a)
 	stack_a->tab[0] = temp;
 	ft_printf("rra\n");
 }
+
 void	rrb(t_stack *stack_b)
 {
 	int	i;
@@ -46,6 +47,7 @@ void	rrb(t_stack *stack_b)
 	stack_b->tab[0] = temp;
 	ft_printf("rrb\n");
 }
+
 void	rra_quiet(t_stack *stack_a)
 {
 	int	i;
@@ -62,6 +64,7 @@ void	rra_quiet(t_stack *stack_a)
 	}
 	stack_a->tab[0] = temp;
 }
+
 void	rrb_quiet(t_stack *stack_b)
 {
 	int	i;

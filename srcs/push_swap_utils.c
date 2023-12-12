@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:33:18 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/12 10:32:38 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/12 16:44:25 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	check_sort(t_stack *stack_a)
 
 int	check_r_sort(t_stack *stack_a)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < stack_a->len)

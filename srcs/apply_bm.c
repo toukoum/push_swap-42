@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:28:20 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/12 15:28:34 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/12 16:43:05 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	apply_best_moves(t_stack *a, t_stack *b, t_best_moves *bm)
 	pa(a, b);
 }
 
-
 void	ft_copy_best_move(t_best_moves *bm, t_best_moves *bm_temp)
 {
 	bm->nra = bm_temp->nra;
@@ -41,3 +40,18 @@ void	ft_copy_best_move(t_best_moves *bm, t_best_moves *bm_temp)
 	bm->tt = bm_temp->tt;
 }
 
+int	find_min(t_stack *stack)
+{
+	int	min;
+	int	i;
+
+	i = 1;
+	min = stack->tab[0];
+	while (i < stack->len)
+	{
+		if (stack->tab[i] < min)
+			min = stack->tab[i];
+		i++;
+	}
+	return (min);
+}

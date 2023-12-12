@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:24:16 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/12 10:50:12 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/12 16:43:37 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,13 @@ void	ft_sort_four(t_stack *a, t_stack *stack_b)
 
 void	ft_sort_five(t_stack *a, t_stack *stack_b)
 {
-	int min;
+	int	min;
 
 	if (check_sort(a))
 		return ;
 	min = find_min(a);
-	while (a->tab[0] != min && a->tab[a->len - 1] != min && a->tab[a->len - 2] != min)
+	while (a->tab[0] != min && a->tab[a->len - 1] != min && a->tab[a->len
+			- 2] != min)
 		ra(a);
 	if (a->tab[a->len - 1] == min)
 		rra(a);
