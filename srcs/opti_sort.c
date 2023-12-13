@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:51:15 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/12 16:38:48 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/12 20:00:13 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ void	push_pre_sort(t_stack *a, t_stack *b, t_max_value *mv)
 
 	size_a = a->len;
 	i = 0;
+	if (a->len == 5)
+		return ;
 	while (i < size_a)
 	{
 		if (!is_max_value(a->tab[0], mv))
@@ -120,7 +122,10 @@ void	opti_sort(t_stack *a, t_stack *b)
 	mv = init_mv(a, b);
 	push_median(a, b, mv->median);
 	push_pre_sort(a, b, mv);
-	ft_sort_five(a, b);
+	if (a->len == 4)
+		ft_sort_four(a, b);
+	else
+		ft_sort_five(a, b);
 	ft_back_to_back(a, b, mv, 0);
 	free(mv->copy_tab);
 	free(mv);

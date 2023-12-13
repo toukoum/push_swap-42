@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:46:01 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/08 20:36:27 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/12 22:31:43 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	ft_add_arg(t_list **lst_tab, char *arg)
 		if ((result == 2147483648) || find_dubble(*lst_tab, result))
 			handle_error(lst_tab);
 		node = ft_lstnew((int)result);
+		if (!node)
+			handle_error(lst_tab);
 		ft_lstadd_back(lst_tab, node);
 	}
 }
