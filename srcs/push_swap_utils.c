@@ -6,7 +6,7 @@
 /*   By: rgiraud <rgiraud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:33:18 by rgiraud           #+#    #+#             */
-/*   Updated: 2023/12/12 20:27:44 by rgiraud          ###   ########.fr       */
+/*   Updated: 2023/12/13 16:40:07 by rgiraud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,20 +66,4 @@ int	check_r_sort(t_stack *stack_a)
 		i++;
 	}
 	return (1);
-}
-
-
-void	display_stack(t_stack *stack_a, t_stack *stack_b)
-{
-	ft_printf("\n============ Affichage des Stacks =============\n");
-	ft_printf("Stack A\n");
-	for (int i = 0; i < stack_a->len; i++)
-	{
-		ft_printf("%d ", stack_a->tab[i]);
-	}
-	ft_printf("\n---------------------\nStack B\n");
-	for (int i = 0; i < stack_b->len; i++)
-	{
-		ft_printf("%d ", stack_b->tab[i]);
-	}
 }
